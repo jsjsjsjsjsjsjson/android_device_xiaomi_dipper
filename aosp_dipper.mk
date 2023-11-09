@@ -6,11 +6,13 @@
 
 $(call inherit-product, device/xiaomi/dipper/device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common PE stuff.
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_FACE_UNLOCK_SUPPORTED := true
+$(call inherit-product, vendor/aosp/config/common.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_dipper
+PRODUCT_NAME := aosp_dipper
 PRODUCT_DEVICE := dipper
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := MI 8
@@ -25,3 +27,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_PRODUCT="dipper"
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+TARGET_ENABLE_BLUR := true
+
+TARGET_HAS_UDFPS := true
